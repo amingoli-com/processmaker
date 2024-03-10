@@ -12,9 +12,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
+          'php-version': "8.4"
       - name: update-liara
         env:
           LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
         run: |
-          npm i -g @liara/cli@6
+          npm i -g @liara/cli@5
           liara deploy --app="processmaker" --api-token="$LIARA_TOKEN" --no-app-logs
